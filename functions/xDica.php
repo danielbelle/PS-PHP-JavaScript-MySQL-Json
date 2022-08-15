@@ -16,18 +16,5 @@ class bd
     }
     
 }
-$array = [
-    'pessoas' => [
-        'nome' => 'João',
-        'filhos' =>[
-            'Gustavo',
-            'Victor'
-        ]
-    ]
-    
-];
-    
-    
-
-
 ?>
+/*<?php Handler::arrayHandler($dadosObj,$pessoas);?>*/

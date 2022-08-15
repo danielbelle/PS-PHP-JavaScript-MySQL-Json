@@ -1,0 +1,16 @@
+{
+    "pessoas": [
+        {
+            "nome": "a",
+            "filhos": []
+        },
+        {
+            "nome": "a",
+            "filhos": []
+        },
+        {
+            "nome": "bac",
+            "filhos": []
+        }
+    ]
+}

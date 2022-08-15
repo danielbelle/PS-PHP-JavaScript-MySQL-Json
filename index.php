@@ -1,8 +1,7 @@
 <?php
 
 require_once('bd/Bd.php');
-require_once('functions/Handler.php');
-
+require_once('script.php');
 
 
 
@@ -11,13 +10,6 @@ $comunicadorBd = new Bd();
 $comunicadorBd->Conectar('localhost','teste_rte','root','');
 
 $comunicadorBd->Ler();
-
-
-/*  tem que iniciar assim  */
-$dadosObj = new stdClass();
-$dadosObj->pessoas = [];
-$pessoas = new stdClass();
-
 
 
 ?>
@@ -36,7 +28,7 @@ $pessoas = new stdClass();
 <body>
     <div class="container-cadastro">
                
-        <form method="POST" role="form">
+        <form method="POST" role="form" action="">
             <button>Gravar</button>
             <button>Ler</button>
             <div class="container-entrada-nome"> 
@@ -53,7 +45,12 @@ $pessoas = new stdClass();
     </div>
     <div class="container-json">
         
-        <textarea class="text-area" ><?php Handler::arrayHandler($dadosObj,$pessoas);?></textarea>
+        <textarea class="text-area"><?php 
+            $data = file_get_contents("textarea.json");
+            
+            print_r($data)
+        
+        ?></textarea>
         
     </div>
 
