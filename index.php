@@ -1,51 +1,22 @@
 <?php
-    require_once('bd/conexao.php');
-    require_once('functions/handler.php');
+
+require_once('bd/Bd.php');
+require_once('functions/Handler.php');
 
 
-    
 
 
+/* Conecta ao banco de dados */
+$comunicadorBd = new Bd();
+$comunicadorBd->Conectar('localhost','teste_rte','root','');
 
-    /* Conecta ao banco de dados */
-    $comunicadorBd = new Bd();
-    $comunicadorBd->Conectar('localhost','teste_rte','root','');
-    
-    $comunicadorBd->Ler();
-
-
-    $array = [
-        'pessoas' => [
-            'nome' => 'João',
-            'filhos' =>[
-                'Gustavo',
-                'Victor'
-            ]
-        ]
-
-    ];
+$comunicadorBd->Ler();
 
 
-    function arrayToJson($array){
-
-        $json = json_encode($array, JSON_PRETTY_PRINT | 
-        JSON_UNESCAPED_UNICODE | 
-        JSON_UNESCAPED_SLASHES );
-
-        $lastError = json_last_error();
-
-        if($lastError == 0 ){
-
-            echo $json;
-
-        }else{
-            echo "Erro n°:{$lastError}";
-        }
-        
-        
-        /* PARA DECODAR
-        $decode = json_decode($json);*/
-    }
+/*  tem que iniciar assim  */
+$dadosObj = new stdClass();
+$dadosObj->pessoas = [];
+$pessoas = new stdClass();
 
 
 
@@ -64,15 +35,17 @@
 </head>
 <body>
     <div class="container-cadastro">
-        <div>
+               
+        <form method="POST" role="form">
             <button>Gravar</button>
             <button>Ler</button>
-            <div class="container-entrada-nome">
-                <label>Nome:</label>
-                <input type="text" />
-                <button name="novo-nome-adicionado">Incluir</button>
+            <div class="container-entrada-nome"> 
+                <label for="entrada">Nome:</label>
+                <input type="text" name="entrada" id="entrada">
+                <input type="submit" name="nome-pessoa-adicionado" value="Incluir"></input>
+            
             </div>
-        </div>
+        </form>
         
         <h3 class="titulo">Pessoas</h3>
 
@@ -80,7 +53,7 @@
     </div>
     <div class="container-json">
         
-        <textarea class="text-area" ><?php arrayToJson($array); ?></textarea>
+        <textarea class="text-area" ><?php Handler::arrayHandler($dadosObj,$pessoas);?></textarea>
         
     </div>
 

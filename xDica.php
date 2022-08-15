@@ -1,21 +1,33 @@
 <?php
 
-    class bd {
-        public function CriarBd($host, $user, $password, $database){
-            
-        }
-        public function Conectar($host, $user, $password, $database){
-            
-        }
-        public function Gravar($json){
-            
-        }
-        public function Ler(){
-
-        }
+class bd 
+{
+    public function CriarBd($host, $user, $password, $database){
         
     }
+    public function Conectar($host, $user, $password, $database){
+        
+    }
+    public function Gravar($json){
+        
+    }
+    public function Ler(){
 
+    }
+    
+}
+$array = [
+    'pessoas' => [
+        'nome' => 'João',
+        'filhos' =>[
+            'Gustavo',
+            'Victor'
+        ]
+    ]
+    
+];
+    
+    
 
 
 ?>
