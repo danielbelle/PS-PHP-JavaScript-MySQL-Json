@@ -1,0 +1,92 @@
+body{
+    display: flex;
+}
+
+.container-entrada-nome{
+    margin-top: 20px;
+}
+.titulo{
+    background-color: #CCCCCC;
+    width: 320px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;   
+    margin-bottom: 5px; 
+}
+
+.loop{
+    display: block;
+}
+.card-esquerdo{
+    margin-bottom: 15px;
+    display: block;
+    width: 320px;
+}
+
+.card-pai{
+    display: flex;
+    line-height: 30px;
+    background-color: #DDDDDD;
+    height: 30px;
+}
+
+.div-nome-pai{
+    width: 200px;
+    margin-left: 5px;
+}
+
+.div-btn-pai{
+    margin:0 auto;
+    width: 50px;
+}
+
+.filhos{
+    display: block;
+
+    margin-top: 5px;
+    width: 320px;
+
+    background-color: #EEEEEE;
+}
+
+.card-filhos{
+    display: flex;
+
+}
+.separador-filho{
+    display: flex;
+}
+
+.div-nome-filho{
+
+    width: 185px;
+    margin-left: 20px;
+    line-height: 50px;
+}
+.container-btn-filho{
+    line-height: 30px;
+    margin:0 auto;
+    width: 50px;
+    margin-left: 30px;
+}
+
+
+.btn-add-filho{
+    width: 320px;
+    height: 30px;
+    margin-top: 5px;
+    text-align: center;
+}
+
+
+
+
+.container-json{
+    margin-top: 80px;
+    margin-left: 30px;
+}
+
+.text-area{
+    height: 500px;
+    width: 800px;
+}
