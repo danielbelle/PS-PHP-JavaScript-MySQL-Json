@@ -1,7 +1,8 @@
-
-function removeCard(index){
+/*
+function removeCard(index,infos){
     var elemento = document.getElementById('cardEsq' + index);
     elemento.remove();
+
 }
 
 function removeFilho(index){
@@ -10,9 +11,10 @@ function removeFilho(index){
 }
 
 function adicionarFilho(){
-    /*var elemento = document.getElementById('cardFilho' + index);
+    var elemento = document.getElementById('cardFilho' + index);
    
     var nome = prompt("Informe o nome");
     console.log(index,nome);
-    return nome;*/
+    return nome;
 }
+*/

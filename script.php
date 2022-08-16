@@ -6,7 +6,7 @@ $info_pessoas = new stdClass();
  
 /* Função para pai */
 if(isset($_POST["nome-pessoa-adicionado"])){
-    header('Refresh:0');
+    header('Refresh:0a');
     $info_pessoas->nome=$_POST['entrada'];
     $info_pessoas->filhos = [];
     $dadosObj->pessoas = [$info_pessoas];
