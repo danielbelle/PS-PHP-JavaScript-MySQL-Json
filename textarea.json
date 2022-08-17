@@ -1,25 +1,20 @@
 {
     "pessoas": [
         {
-            "nome": "daaaniel",
-            "filhos": [
-                "Gustavo",
-                "Victor"
-            ]
-        },
-        {
-            "nome": "acbasd",
-            "filhos": [
-                "lorota",
-                "pqp"
-            ]
-        },
-        {
             "nome": "a",
-            "filhos": [
-                "koa",
-                "moa"
-            ]
+            "filhos": ["abc","ddd"]
+        },
+        {
+            "nome": "",
+            "filhos": []
+        },
+        {
+            "nome": "",
+            "filhos": []
+        },
+        {
+            "nome": "",
+            "filhos": []
         }
     ]
 }
