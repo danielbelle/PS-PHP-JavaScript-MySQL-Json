@@ -1,16 +1,3 @@
-<?php
-require_once('Bd.php');
-require_once('script.php');
-
-/* Conecta ao banco de dados */
-$comunicadorBd = new Bd();
-$comunicadorBd->Conectar('localhost','teste_rte','root','');
-
-$comunicadorBd->Ler();
-?>
-
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -18,15 +5,15 @@ $comunicadorBd->Ler();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="style.css">
     <title>Teste Turim</title>
 </head>
 <body>
     <form method="POST" role="form">
         <div class="container-cadastro">       
             <div class="bd-enviar-receber">
-                <button>Gravar</button>
-                <button>Ler</button>
+                <button type="button" class="gravar-bd">Gravar</button>
+                <button type="button" class="ler-bd">Ler</button>
             </div>
             <div class="container-entrada-nome"> 
                 <label for="entrada">Nome:</label>
@@ -78,7 +65,7 @@ $comunicadorBd->Ler();
                         ?>
                     </div>
                     <div class="btn-add-filho" name="filho-add">
-                        <button type="button" class="novo-filho" data-id="<?php echo $key ?>">Adicionar Filho</button>
+                        <button type="button" class="novo-filho" data-pai="<?php echo $key ?>">Adicionar Filho</button>
                     </div>
                 </div> 
                 <?php 
@@ -96,7 +83,17 @@ $comunicadorBd->Ler();
     </div>
 </body>
 </html>
+<?php
+require_once('bd.php');
+require_once('script.php');
 
+/* Conecta ao banco de dados */
+$comunicadorBd = new Bd();
+$comunicadorBd->Conectar('localhost','teste_rte','root','');
+$myJson = file_get_contents("textarea.json");
+$comunicadorBd->Gravar($myJson);
+/*$comunicadorBd->Ler();*/
+?>
 <script>
 $(document).ready(function(){
     $(document).on('click', '.delete', function(){
@@ -137,6 +134,27 @@ $(document).ready(function(){
             }
         });
         
+
+    });
+
+    $(document).on('click', '.novo-filho', function(){
+
+        var id_pai = $(this).data('pai');
+        var nome = prompt("Informe o nome:");
+        console.log("id pai é: "+id_pai+" nome: " +nome);
+        if(nome != null){
+            $.ajax({
+                url:"script.php",
+                method:"POST",
+                data:{action:'novo-filho', id_pai:id_pai, nome:nome},
+                dataType:"text",
+                success:function(data){
+
+                    console.log(data);
+                    window.location.reload();
+                }
+            });
+        }
 
     });
 

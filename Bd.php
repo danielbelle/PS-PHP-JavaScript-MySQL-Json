@@ -6,6 +6,7 @@ class Bd
     private $user;
     private $password;   
     private $con;
+    private $json;
 
     public function Conectar($host, $database, $user, $password){
         $this->host = $host;
@@ -23,6 +24,18 @@ class Bd
         return $this->con;
 
     }
+
+    public function Gravar($json){
+        $this->json=$json;
+        $jsonArray = json_decode($this->json, JSON_OBJECT_AS_ARRAY);
+        echo('<pre>');
+        print_r($jsonArray);
+        echo('<pre>');
+
+
+
+    }
+
     public function Ler(){
         $sql = $this->con->prepare("SELECT * FROM pessoa");
         $sql->execute();
