@@ -58,7 +58,6 @@ $comunicadorBd->Ler();
                             <button type="button" class="btn-remover-pai delete" data-id="<?php echo $key ?>">Remover</button>
                         </div>
                     </div>
-                        <!-- VARIAVEL FILHOS SOME  TENHO QUE ALTERAR A KEY-->
                     <div class="filhos">
                         <?php 
                         foreach($info->filhos as $key2_filho=>$info_filho){
@@ -70,7 +69,7 @@ $comunicadorBd->Ler();
                                     <label class="nome-filho">- <?php echo $info_filho?></label>
                                 </div>
                                 <div class="div-btn-filho">
-                                    <button class="btn-remover-filho delete-filho" data-id="<?php echo $key2_filho ?>>Remover Filho</button>
+                                    <button type="button" class="btn-remover-filho del-filho" data-id="<?php echo $key2_filho ?>" data-pai="<?php echo $key ?>" >Remover Filho</button>
                                 </div>
                             </div>
                         </div> 
@@ -79,7 +78,7 @@ $comunicadorBd->Ler();
                         ?>
                     </div>
                     <div class="btn-add-filho" name="filho-add">
-                        <input type="submit" value="Adicionar Filho" name="novo-filho" key="<?php echo $key ?>" onclick="adicionarFilho()"></input>
+                        <button type="button" class="novo-filho" data-id="<?php echo $key ?>">Adicionar Filho</button>
                     </div>
                 </div> 
                 <?php 
@@ -87,21 +86,13 @@ $comunicadorBd->Ler();
                 }
                 ?>
             </div>
-
-
-
-
         </div>
-
     </form>
     <div class="container-json">
-        
         <textarea class="text-area" id="text-area"><?php 
             $data = file_get_contents("textarea.json");
-            
             print_r($data)?>
         </textarea>
-        
     </div>
 </body>
 </html>
@@ -111,7 +102,7 @@ $(document).ready(function(){
     $(document).on('click', '.delete', function(){
 
         var id = $(this).data('id');
-        console.log("id é :" +id);
+        //console.log("id é :" +id);
         $.ajax({
             url:"script.php",
             method:"POST",
@@ -119,17 +110,36 @@ $(document).ready(function(){
             dataType:"text",
             success:function(data)
             {
-                const elemento = document.getElementById('cardEsq' + id);
-                elemento.remove();
-                const printar_dados = document.querySelector(".container-json");
-                /*var php = "<?php $data = file_get_contents("textarea.json"); print_r($data)?>";
-                printar_dados.innerHTML = '<textarea class="text-area">'+ php +'</textarea>';
-                */
+                window.location.reload();
+                console.log(data);
+            }
+        });
+        
+
+    });
+
+    $(document).on('click', '.del-filho', function(){
+
+        var id_filho = $(this).data('id');
+        var id_pai = $(this).data('pai');
+
+        console.log("id pai é: "+id_pai+" e id filho é :" +id_filho);
+
+        $.ajax({
+            url:"script.php",
+            method:"POST",
+            data:{action:'del-filho', id_pai:id_pai,id_filho:id_filho},
+            dataType:"text",
+            success:function(data){
+
+                console.log(data);
                 window.location.reload();
             }
         });
         
 
     });
+
+
 });
 </script>

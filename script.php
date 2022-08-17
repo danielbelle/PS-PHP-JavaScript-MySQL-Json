@@ -65,14 +65,15 @@ if(isset($_POST['action'])){
         if(!file_put_contents("textarea.json", json_encode($dadosObj, JSON_PRETTY_PRINT |JSON_UNESCAPED_UNICODE |  JSON_UNESCAPED_SLASHES))){
             //echo "Erro ao salvar dado, tente novamente";
         }
-        
-        
     }
+}
 
-    if($_POST['action'] == 'delete') {
+if(isset($_POST['action'])){
+    if($_POST['action'] == 'del-filho') {
         header('Refresh:0');
-            
-        $key = $_POST['id'];
+        
+        $key_filho = $_POST['id_filho'];
+        $key_pai = $_POST['id_pai'];
 
         $dadosObj->pessoas = [];
         $info_pessoas = new stdClass(); 
@@ -80,33 +81,16 @@ if(isset($_POST['action'])){
 
         $dado_antigo = new stdClass();
         $dado_antigo = json_decode(file_get_contents("textarea.json"));
-        $dado_pessoas = [];
-        //echo("key é: $key ");
-        //print_r($dado_antigo->pessoas[$key]);
-        //unset($dado_antigo->pessoas[$key]);
-        
 
-        foreach ($dado_antigo->pessoas as $keydp=>$dp) {
-            
-            if($key != $keydp){
-                //print_r($key);
-                //print_r($keydp);
-                //print_r($dp);
-                $dado_pessoas[] = $dp;
-            }
-        }
-        $dadosObj->pessoas = $dado_pessoas;
-        print_r($dadosObj);
+        unset($dado_antigo->pessoas[$key_pai]->filhos[$key_filho]);
+        
+        $dadosObj = $dado_antigo;
+        
         if(!file_put_contents("textarea.json", json_encode($dadosObj, JSON_PRETTY_PRINT |JSON_UNESCAPED_UNICODE |  JSON_UNESCAPED_SLASHES))){
-            //echo "Erro ao salvar dado, tente novamente";
         }
         
         
     }
-
-
-
 }
-
 
 ?>

@@ -1,19 +1,19 @@
 {
     "pessoas": [
         {
+            "nome": "daaaniel",
+            "filhos": [
+                "Gustavo"
+            ]
+        },
+        {
+            "nome": "acbasd",
+            "filhos": [
+                "lorota"
+            ]
+        },
+        {
             "nome": "a",
-            "filhos": ["abc","ddd"]
-        },
-        {
-            "nome": "",
-            "filhos": []
-        },
-        {
-            "nome": "",
-            "filhos": []
-        },
-        {
-            "nome": "",
             "filhos": []
         }
     ]
