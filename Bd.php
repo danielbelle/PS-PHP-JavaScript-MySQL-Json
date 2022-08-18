@@ -1,4 +1,9 @@
 <?php
+require_once('script.php');
+
+/* Conecta ao banco de dados */
+$comunicadorBd = new Bd();
+$comunicadorBd->Conectar('localhost','teste_rte','root','123456');
 class Bd 
 {
     private $host;
@@ -27,11 +32,18 @@ class Bd
 
     public function Gravar($json){
         $this->json=$json;
-        $jsonArray = json_decode($this->json, JSON_OBJECT_AS_ARRAY);
-        echo('<pre>');
-        print_r($jsonArray);
-        echo('<pre>');
-
+        
+        $statements = [
+            file_get_contents("textareajson.sql"),
+            "INSERT INTO `textareajson` VALUES('$json');" ,
+            file_get_contents("send-to-mysql.sql")
+        ];
+        
+        foreach($statements as $stm){
+            $sql = $this->con->prepare($stm);
+            $sql->execute();
+        }
+        
 
 
     }

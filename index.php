@@ -12,13 +12,14 @@
     <form method="POST" role="form">
         <div class="container-cadastro">       
             <div class="bd-enviar-receber">
-                <button type="button" class="gravar-bd">Gravar</button>
-                <button type="button" class="ler-bd">Ler</button>
+                <button type="button" name="gravar-bd" class="gravar-bd">Gravar</button>
+                <button type="button" name="ler-bd"
+                class="ler-bd">Ler</button>
             </div>
             <div class="container-entrada-nome"> 
                 <label for="entrada">Nome:</label>
                 <input type="text" name="entrada" id="entrada">
-                <input type="submit" name="nome-pessoa-adicionado" value="Incluir"></input>
+                <button type="button" name="nome-pessoa-adicionado" class="novo-nome-pai">Incluir</button>
             
             </div>
         
@@ -83,18 +84,9 @@
     </div>
 </body>
 </html>
-<?php
-require_once('bd.php');
-require_once('script.php');
 
-/* Conecta ao banco de dados */
-$comunicadorBd = new Bd();
-$comunicadorBd->Conectar('localhost','teste_rte','root','');
-$myJson = file_get_contents("textarea.json");
-$comunicadorBd->Gravar($myJson);
-/*$comunicadorBd->Ler();*/
-?>
 <script>
+
 $(document).ready(function(){
     $(document).on('click', '.delete', function(){
 
@@ -158,6 +150,55 @@ $(document).ready(function(){
 
     });
 
+    $(document).on('click', '.gravar-bd', function(){
+        
+        $.ajax({
+            url:"script.php",
+            method:"POST",
+            data:{action:'gravar-bd'}, 
+            dataType:"text",
+            success:function(data){
+                //console.log(data);
+                alert("Gravado com sucesso!");
+                window.location.reload();
+            }
+        })
+
+    });
+
+    $(document).on('click', '.ler-bd', function(){
+
+        console.log('top aqui1');
+        
+        $.ajax({
+            url:"script.php",
+            method:"POST",
+            data:{action:'ler-bd'}, 
+            dataType:"text",
+            success:function(data){
+                console.log(data);
+                window.location.reload();
+            }
+        })
+
+    });
+
+    $(document).on('click', '.nome-pessoa-adicionado', function(){
+
+        console.log('top aqui1');
+        
+        $.ajax({
+            url:"script.php",
+            method:"POST",
+            data:{action:'nome-pessoa-adicionado'}, 
+            dataType:"text",
+            success:function(data){
+                console.log(data);
+                window.location.reload();
+            }
+        })
+
+    });
 
 });
 </script>

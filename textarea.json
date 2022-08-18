@@ -1,24 +1,15 @@
 {
     "pessoas": [
         {
-            "nome": "daniel",
-            "filhos": [
-                "Gustavo",
-                "Victor"
-            ]
-        },
-        {
-            "nome": "Lucas",
-            "filhos": [
-                "Silvia",
-                "Jhon"
-            ]
+            "nome": "Alice",
+            "filhos": []
         },
         {
             "nome": "Lina",
             "filhos": [
                 "Mara",
-                "Rick"
+                "cliu",
+                "aaa"
             ]
         }
     ]
