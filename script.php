@@ -9,10 +9,10 @@ $info_pessoas = new stdClass();
  
 /* Função para pai */
 if(isset($_POST['action'])){
-    if($_POST['action'] == 'nome-pessoa-adicionado') {
+    if($_POST['action'] == 'pessoa-adicionada') {
         header('Refresh:0');
 
-        $info_pessoas->nome=$_POST['entrada'];
+        $info_pessoas->nome=$_POST['input'];
         $info_pessoas->filhos = [];
         $dadosObj->pessoas = [$info_pessoas];
 

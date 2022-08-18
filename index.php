@@ -19,7 +19,7 @@
             <div class="container-entrada-nome"> 
                 <label for="entrada">Nome:</label>
                 <input type="text" name="entrada" id="entrada">
-                <button type="button" name="nome-pessoa-adicionado" class="novo-nome-pai">Incluir</button>
+                <button type="button" name="pessoa-adicionada" class="pessoa-adicionada">Incluir</button>
             
             </div>
         
@@ -159,8 +159,8 @@ $(document).ready(function(){
             dataType:"text",
             success:function(data){
                 //console.log(data);
-                alert("Gravado com sucesso!");
                 window.location.reload();
+                alert("Gravado com sucesso!");
             }
         })
 
@@ -183,20 +183,23 @@ $(document).ready(function(){
 
     });
 
-    $(document).on('click', '.nome-pessoa-adicionado', function(){
+    $(document).on('click', '.pessoa-adicionada', function(){ 
 
-        console.log('top aqui1');
-        
-        $.ajax({
-            url:"script.php",
-            method:"POST",
-            data:{action:'nome-pessoa-adicionado'}, 
-            dataType:"text",
-            success:function(data){
-                console.log(data);
-                window.location.reload();
-            }
-        })
+        var input = document.querySelector("#entrada").value;
+
+
+        if(input != null && input !=""){
+            $.ajax({
+                url:"script.php",
+                method:"POST",
+                data:{action:'pessoa-adicionada', input:input}, 
+                dataType:"text",
+                success:function(data){
+                    //console.log(data);
+                    window.location.reload();
+                }
+            })
+        }
 
     });
 

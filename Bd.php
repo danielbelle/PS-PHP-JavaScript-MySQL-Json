@@ -34,9 +34,9 @@ class Bd
         $this->json=$json;
         
         $statements = [
-            file_get_contents("textareajson.sql"),
+            file_get_contents("sql-scripts/textareajson.sql"),
             "INSERT INTO `textareajson` VALUES('$json');" ,
-            file_get_contents("send-to-mysql.sql")
+            file_get_contents("sql-scripts/send-to-mysql.sql")
         ];
         
         foreach($statements as $stm){
