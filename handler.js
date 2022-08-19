@@ -12,7 +12,7 @@ $(document).ready(function(){
             success:function(data)
             {
                 window.location.reload();
-                console.log(data);
+                //console.log(data);
             }
         });
         
@@ -33,7 +33,7 @@ $(document).ready(function(){
             dataType:"text",
             success:function(data){
 
-                console.log(data);
+                //console.log(data);
                 window.location.reload();
             }
         });
@@ -54,7 +54,7 @@ $(document).ready(function(){
                 dataType:"text",
                 success:function(data){
 
-                    console.log(data);
+                    //console.log(data);
                     window.location.reload();
                 }
             });
@@ -80,7 +80,7 @@ $(document).ready(function(){
 
     $(document).on('click', '.ler-bd', function(){
 
-        console.log('top aqui1');
+        //console.log('top aqui1');
         
         $.ajax({
             url:"script.php",
@@ -88,7 +88,7 @@ $(document).ready(function(){
             data:{action:'ler-bd'}, 
             dataType:"text",
             success:function(data){
-                console.log(data);
+                //console.log(data);
                 window.location.reload();
             }
         })

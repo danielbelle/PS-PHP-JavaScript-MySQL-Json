@@ -49,15 +49,26 @@ class Bd
     }
 
     public function Ler(){
-        $sql = $this->con->prepare("SELECT * FROM pessoa");
-        $sql->execute();
-        
-        $fetchPessoa = $sql->fetchAll();
 
-        /*foreach ($fetchPessoa as $key => $value) {
-            echo "{$value['id']} | {$value['nome']}";
-            echo '<hr>';
-        }*/
+        $statements = [ 
+            file_get_contents("sql-scripts/recive-from-mysql.sql"),
+            'SELECT * FROM `jsonsainda`;'
+
+        ];
+
+        foreach($statements as $stm){
+            $sql = $this->con->prepare($stm);
+            $sql->execute();
+            $resultado = $sql->fetchAll();
+        }
+
+        print_r($resultado[0][0]);
+
+        file_put_contents("textarea.json",$resultado[0][0]);
+        
+        $sql3 = $this->con->prepare("DROP TABLE IF EXISTS jsonsainda");
+        $sql3->execute();
+        
     }
     
 }

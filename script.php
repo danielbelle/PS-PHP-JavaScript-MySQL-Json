@@ -130,9 +130,8 @@ if(isset($_POST['action'])){
 
     if(isset($_POST['action'])){
         if($_POST['action'] == 'gravar-bd')  {
-        
         header('Refresh:0');
-        print_r("vim");
+        
         $comunicadorBd->Gravar(file_get_contents("textarea.json"));
         }
 
@@ -140,11 +139,9 @@ if(isset($_POST['action'])){
 
     if(isset($_POST['action'])){
         if($_POST['action'] == 'ler-bd')  {
-        
         header('Refresh:0');
-        print_r("vim");
-        //$comunicadorBd = new Bd();
-        //$comunicadorBd->Ler();
+
+        $comunicadorBd->Ler();
 
         }
 
