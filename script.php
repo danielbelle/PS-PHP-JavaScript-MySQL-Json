@@ -147,7 +147,19 @@ if(isset($_POST['action'])){
 
     }
 
+    /*if(isset($_POST['action'])){
+        if($_POST['action'] == 'reloadtxt') {
+            header('Refresh:0');
+            
+            $dadosObj->pessoas = [];
 
+        
+            if(!file_put_contents("textarea.json", json_encode($dadosObj, JSON_PRETTY_PRINT |JSON_UNESCAPED_UNICODE |  JSON_UNESCAPED_SLASHES))){
+            }
+        }
+    }*/
+
+    
 
 }
 

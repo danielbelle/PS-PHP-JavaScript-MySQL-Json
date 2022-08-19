@@ -1,34 +1,4 @@
 {
-    "pessoas": [
-        {
-            "nome": "abc",
-            "filhos": [
-                "a"
-            ]
-        },
-        {
-            "nome": "1",
-            "filhos": [
-                ""
-            ]
-        },
-        {
-            "nome": "aaa",
-            "filhos": [
-                ""
-            ]
-        },
-        {
-            "nome": "avascascas",
-            "filhos": [
-                ""
-            ]
-        },
-        {
-            "nome": "asdasdas",
-            "filhos": [
-                ""
-            ]
-        }
-    ]
+  "pessoas": [
+  ]
 }

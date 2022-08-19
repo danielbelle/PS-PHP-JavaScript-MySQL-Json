@@ -4,6 +4,10 @@ require_once('script.php');
 /* Conecta ao banco de dados */
 $comunicadorBd = new Bd();
 $comunicadorBd->Conectar('localhost','teste_rte','root','123456');
+
+
+
+
 class Bd 
 {
     private $host;
@@ -35,7 +39,7 @@ class Bd
         
         $statements = [
             file_get_contents("sql-scripts/textareajson.sql"),
-            "INSERT INTO `textareajson` VALUES('$json');" ,
+            "INSERT INTO `textareajson` VALUES('$this->json');" ,
             file_get_contents("sql-scripts/send-to-mysql.sql")
         ];
         

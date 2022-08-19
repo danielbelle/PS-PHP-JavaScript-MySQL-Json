@@ -30,7 +30,7 @@
                 <h3>Pessoas</h3>
             </div>
 
-            <div class=""> 
+            <div id="info-load-esq"> 
                 <?php
                 $json_data = file_get_contents("textarea.json");
                 $infos = json_decode($json_data);

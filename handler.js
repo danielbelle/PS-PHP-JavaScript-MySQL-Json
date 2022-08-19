@@ -1,5 +1,7 @@
 
 $(document).ready(function(){
+    
+
     $(document).on('click', '.delete', function(){
 
         var id = $(this).data('id');
@@ -72,7 +74,7 @@ $(document).ready(function(){
             success:function(data){
                 //console.log(data);
                 window.location.reload();
-                alert("Gravado com sucesso!");
+                alert("sucesso");
             }
         })
 
@@ -115,4 +117,22 @@ $(document).ready(function(){
 
     });
 
+});
+
+$(window).on("load", function(){
+
+/*
+    $.ajax({
+        url:"script.php",
+        method:"POST",
+        data:{action:'reloadtxt'},
+        dataType:"text",
+        success:function(data)
+        {
+            console.log(data);
+        }
+    });
+*/
+
+    
 });
