@@ -10,3 +10,5 @@ Conhecimentos adquiridos na tarefa:
 - Utilização do ajax para fazer comunicação entre a ação do usuário e resposta do servidor.
 - Utilziação do PDO para fazer comunicação com o banco de dados.
 - A utilização da linguagem php e servidores.
+
+Segue o link: https://github.com/Ponja94/PS-PHP-JavaScript-MySQL-Json
